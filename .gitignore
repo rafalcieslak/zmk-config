@@ -1,0 +1,11 @@
+zmk
+zephyr
+
+modules
+
+.west
+home
+
+build
+out
+
