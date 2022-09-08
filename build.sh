@@ -9,8 +9,8 @@ BASE_SHIELD="kyria_rev2"
 export HOME="${PWD}/home"
 mkdir -p ${HOME}
 
-# west init -l config
-west update
+# west init -l config   # Probably only needed on fhe initial run.
+# west update   # Only needed when changing zmk versions.
 west zephyr-export
 
 function build_side {
