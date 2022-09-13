@@ -12,6 +12,18 @@
 #define ADJUST  5
 
 / {
+  behaviors {
+    bhm: balanced_homerow_mods {
+      compatible = "zmk,behavior-hold-tap";
+      label = "HOMEROW_MODS";
+      #binding-cells = <2>;
+      tapping-term-ms = <200>;    // <---[[moderate duration]]
+      quick-tap-ms = <0>;
+      flavor = "balanced";
+      bindings = <&kp>, <&kp>;
+    };
+  };
+
   keymap {
     compatible = "zmk,keymap";
 
@@ -30,10 +42,10 @@
 //                       ┆      ┆      ┆ TAB  ┆ SPACE┆ RET  ┆  ┆      ┆ BSPC ┆      ┆      ┆      ┆
 //                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
       bindings = <
-    &kp TAB        &kp Q      &kp W       &kp E        &kp R        &kp T                                                                &kp Y    &kp U         &kp I           &kp O      &kp P         &kp BSPC
-    &mt LCTRL ESC  &kp A      &kp S       &kp D        &mt LSHIFT F &kp G                                                                &kp H    &mt RSHIFT J  &kp K           &kp L      &kp SEMI      &mt RCTRL RET
-    &kp LSHFT      &kp Z      &kp X       &kp C        &kp V        &kp B        &kp CLCK        &mo ADJUST      &kp PSCRN &kp INSERT    &kp N    &kp M         &kp COMMA       &kp DOT    &kp FSLH      &kp RSHIFT
-                                          &mo FKEYS    &kp LGUI     &mt LALT TAB &mt LCTRL SPACE &lt SYM RET     &kp DEL   &lt NAVI BSPC &kp RALT &kp RGUI      &kp PAUSE_BREAK
+    &kp TAB        &kp Q      &kp W       &kp E        &kp R         &kp T                                                                &kp Y    &kp U          &kp I           &kp O      &kp P         &kp BSPC
+    &mt LCTRL ESC  &kp A      &kp S       &kp D        &bhm LSHIFT F &kp G                                                                &kp H    &bhm RSHIFT J  &kp K           &kp L      &kp SEMI      &mt RCTRL RET
+    &kp LSHFT      &kp Z      &kp X       &kp C        &kp V         &kp B        &kp CLCK        &mo ADJUST      &kp PSCRN &kp INSERT    &kp N    &kp M          &kp COMMA       &kp DOT    &kp FSLH      &kp RSHIFT
+                                          &mo FKEYS    &kp LGUI      &mt LALT TAB &mt LCTRL SPACE &lt SYM RET     &kp DEL   &lt NAVI BSPC &kp RALT &kp RGUI       &kp PAUSE_BREAK
       >;
     };
 
@@ -76,10 +88,10 @@
 //                       └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘  └╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┴╌╌╌╌╌╌┘
 
       bindings = <
-    &kp GRAV  &kp N1 &kp N2 &kp N3 &kp N4        &kp N5                                      &kp N6  &kp N7          &kp N8   &kp N9         &kp N0    &kp BSLH
-    &trans    &kp N6 &kp N7 &kp N8 &mt LSHIFT N9 &kp N0                                      &kp SQT &mt RSHIFT LBKT &kp RBKT &kp MINUS      &kp EQUAL &none
-    &trans    &none  &none  &none  &none         &none  &kp SLCK &none         &none  &none  &kp DQT &kp LPAR        &kp RPAR &kp UNDERSCORE &kp PLUS  &trans
-                            &trans &trans        &trans &trans   &trans        &trans &trans &trans  &trans          &trans
+    &kp GRAV  &kp N1 &kp N2 &kp N3 &kp N4         &kp N5                                      &kp N6  &kp N7           &kp N8   &kp N9         &kp N0    &kp BSLH
+    &trans    &kp N6 &kp N7 &kp N8 &bhm LSHIFT N9 &kp N0                                      &kp SQT &bhm RSHIFT LBKT &kp RBKT &kp MINUS      &kp EQUAL &none
+    &trans    &none  &none  &none  &none          &none  &kp SLCK &none         &none  &none  &kp DQT &kp LPAR         &kp RPAR &kp UNDERSCORE &kp PLUS  &trans
+                            &trans &trans         &trans &trans   &trans        &trans &trans &trans  &trans           &trans
       >;
     };
 
